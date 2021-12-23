@@ -1,8 +1,6 @@
 import pyautogui
 import time
 
-
-
 def CheckForEncounter(_temToHunt):
     _encounters = int(0)
     #Check for encounter - screen fades black
@@ -16,12 +14,10 @@ def CheckForEncounter(_temToHunt):
             
             #Check for correct Temtem (left spot)
             if pyautogui.locateOnScreen("names/"+_temToHunt+".png", confidence=0.9, region=(1150,20,350,60)) != None:
-                print("A "+ _temToHunt.title() + " was found!")
                 _encounters += 1
 
             #Check for correct Temtem (right spot / single battle)
             if pyautogui.locateOnScreen("names/"+_temToHunt+".png", confidence=0.9, region=(1500,60,350,60)) != None:
-                print("A "+ _temToHunt.title() + " was found!")
                 _encounters += 1
 
             return int(_encounters) #Return the amount of valid encounters

@@ -2,6 +2,7 @@ import time
 import pyautogui
 from discordpresence import DiscordPresence
 from Screenreader import CheckForEncounter
+import webhook
 
 _allNames = ["mosu"]
 _isTemtemValid = False
@@ -37,8 +38,21 @@ while 1:
     _newEncounters = int(0)
     _newEncounters = CheckForEncounter(_temToHunt)
     if (_newEncounters > int(0)): #If more Tems are found, show total and update rich presence
+        if _newEncounters == 1:
+            print("A "+ _temToHunt.title() + " was found!") 
+        if _newEncounters == 2:
+            print("Two "+ _temToHunt.title() + " were found!")
         _encounters += _newEncounters
+        
+        #Report dry streaks (500 encounters)
+        if _encounters % 500 == 0 and _encounters != 0:
+            webhook.DryStreak(_encounters, _temToHunt)
+        if _encounters % 500 == 1 and _encounters != 1:
+            webhook.DryStreak((_encounters - 1), _temToHunt)
+        print(str(_encounters%500) )   
         print("Total encounters: "+str(_encounters))
-        discPres.update(_temToHunt, _encounters, _startTime) 
+        discPres.update(_temToHunt, _encounters, _startTime)
+
+
         
 
