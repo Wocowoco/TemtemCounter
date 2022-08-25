@@ -27,7 +27,6 @@ if _input.lower() == "n":
 
 print("You are now hunting " + _temToHunt.title() + ". Good luck!")
 print(" ")
-
 #Set Discord Rich Presence to show that you're Luma Hunting
 _startTime = time.time()
 discPres = DiscordPresence()

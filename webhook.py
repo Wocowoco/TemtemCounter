@@ -8,7 +8,7 @@ def LumaFound(_encounters, _temToHunt):
       "embeds": [
         {
           "type": "rich",
-          "title": "Luma "+ str(_temToHunt),
+          "title": "Luma "+ str(_temToHunt).title(),
           "description": "",
           "color": 0x00FFFF,
           "fields": [
@@ -34,7 +34,7 @@ def DryStreak(_encounters, _temToHunt):
       "embeds": [
         {
           "type": "rich",
-          "title": "Trying for a Luma "+ str(_temToHunt),
+          "title": "Trying for a Luma "+ str(_temToHunt).title(),
           "description": "",
           "color": 0xFF6600,
           "fields": [
